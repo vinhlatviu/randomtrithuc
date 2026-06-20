@@ -1,3 +1,12 @@
 [
-  { "kienThuc": "Câu hỏi?", "giaiThich": "Đáp án!" }
+  { "kienThuc": "2 + 3 bằng mấy?", "giaiThich": "2 + 3 = 5" },
+  { "kienThuc": "Thủ đô của Việt Nam là gì?", "giaiThich": "Thủ đô của Việt Nam là Hà Nội." },
+  { "kienThuc": "Nước nào có hình dáng giống chữ S?", "giaiThich": "Đó chính là Việt Nam thân yêu của chúng ta!" },
+  { "kienThuc": "Đâu là loài vật chạy nhanh nhất thế giới?", "giaiThich": "Báo săn (Cheetah) là loài chạy nhanh nhất trên cạn." },
+  { "kienThuc": "Trái đất của chúng ta có hình gì?", "giaiThich": "Trái đất có dạng hình cầu hơi dẹt ở hai cực." },
+  { "kienThuc": "Ai là người sáng lập ra trường Tiểu học Trưng Vương?", "giaiThich": "Thông tin này bạn có thể bổ sung từ tư liệu nhà trường để giáo dục học sinh về lịch sử nơi mình học." },
+  { "kienThuc": "Cây nào thường xuất hiện trong ngày Tết ở miền Nam?", "giaiThich": "Đó là cây Mai vàng." },
+  { "kienThuc": "Một tuần có bao nhiêu ngày?", "giaiThich": "Một tuần có 7 ngày." },
+  { "kienThuc": "Mặt trời mọc ở hướng nào?", "giaiThich": "Mặt trời mọc ở hướng Đông." },
+  { "kienThuc": "Ai là người được gọi là 'Bác Hồ'?", "giaiThich": "Đó là Chủ tịch Hồ Chí Minh vĩ đại." }
 ]
