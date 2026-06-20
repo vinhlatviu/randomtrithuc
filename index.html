@@ -1,27 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cỗ máy tri thức</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body { font-family: Arial; padding: 20px; text-align: center; }
-        #hien-thi { margin: 20px 0; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
+        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; background: #f0f2f5; }
+        .card-container { width: 300px; height: 200px; perspective: 1000px; cursor: pointer; margin-bottom: 20px; }
+        .card { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.6s; }
+        .card.flipped { transform: rotateY(180deg); }
+        .face { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; display: flex; align-items: center; justify-content: center; padding: 20px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); box-sizing: border-box; text-align: center; }
+        .front { background: #fff; color: #333; }
+        .back { background: #4a90e2; color: #fff; transform: rotateY(180deg); }
     </style>
 </head>
 <body>
-    <h1>🌟 Random Tri Thức</h1>
-    <div id="hien-thi">Nhấn nút để nhận tri thức mới!</div>
-    <button onclick="randomTriThuc()">Lấy kiến thức mới</button>
+
+    <h1>Flashcards Trưng Vương</h1>
+    <div class="card-container" onclick="this.firstChild.classList.toggle('flipped')">
+        <div class="card">
+            <div class="face front" id="front">Đang tải...</div>
+            <div class="face back" id="back">Đáp án sẽ hiện ở đây</div>
+        </div>
+    </div>
+    <button onclick="loadNewCard()">Thẻ tiếp theo</button>
 
     <script>
-        let duLieu = [];
-        // Thay link dưới bằng đường dẫn file data.json của bạn trên GitHub (dạng Raw)
-        fetch('https://raw.githubusercontent.com/vinhlatviu/randomtrithuc/main/data.json')
+        let data = [];
+        fetch('data.json')
             .then(res => res.json())
-            .then(data => duLieu = data);
+            .then(d => { data = d; loadNewCard(); });
 
-        function randomTriThuc() {
-            let item = duLieu[Math.floor(Math.random() * duLieu.length)];
-            document.getElementById('hien-thi').innerHTML = `<b>${item.kienThuc}</b><br><br>${item.giaiThich}`;
+        function loadNewCard() {
+            let card = document.querySelector('.card');
+            card.classList.remove('flipped');
+            let item = data[Math.floor(Math.random() * data.length)];
+            setTimeout(() => {
+                document.getElementById('front').innerText = item.kienThuc;
+                document.getElementById('back').innerText = item.giaiThich;
+            }, 300);
         }
     </script>
 </body>
