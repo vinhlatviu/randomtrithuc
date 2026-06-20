@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cỗ máy tri thức</title>
+    <style>
+        body { font-family: Arial; padding: 20px; text-align: center; }
+        #hien-thi { margin: 20px 0; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <h1>🌟 Random Tri Thức</h1>
+    <div id="hien-thi">Nhấn nút để nhận tri thức mới!</div>
+    <button onclick="randomTriThuc()">Lấy kiến thức mới</button>
+
+    <script>
+        let duLieu = [];
+        // Thay link dưới bằng đường dẫn file data.json của bạn trên GitHub (dạng Raw)
+        fetch('https://raw.githubusercontent.com/vinhlatviu/randomtrithuc/main/data.json')
+            .then(res => res.json())
+            .then(data => duLieu = data);
+
+        function randomTriThuc() {
+            let item = duLieu[Math.floor(Math.random() * duLieu.length)];
+            document.getElementById('hien-thi').innerHTML = `<b>${item.kienThuc}</b><br><br>${item.giaiThich}`;
+        }
+    </script>
+</body>
+</html>
